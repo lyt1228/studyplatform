@@ -1,0 +1,35 @@
+<!--miniprogram/pages/users/users.wxml-->
+<van-cell-group>
+  <view class='header'>
+    <image class='userinfo-avatar' src='{{userInfo.avatarUrl}}' mode='cover'></image>
+    <view class="info">
+      <text>姓名：张三\n</text>
+      <text>学号：2015081001\n</text>
+      <text>专业：医学信息工程\n</text>
+      <text>年级：2015级\n</text>
+    </view>
+
+  </view>
+  <!-- <block wx:if="{{}}"> -->
+  <van-cell title="我的课程" icon="debit-pay" is-link />
+  <van-cell title="我的收藏" icon="star-o" is-link />
+
+  <!-- </block> -->
+  <!-- <block wx:else> -->
+  <navigator url='../coursemanagement/coursemanagement'>
+    <van-cell title="学习管理" icon="comment-o" is-link />
+  </navigator>
+  <!-- <block> -->
+
+  <view class='setting'>
+    <view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+    <view class="modalDlg" wx:if="{{showModal}}">
+      <view>原密码</view>
+      <input password='true' bindinput='oldpswInput'></input>
+      <view>新密码</view>
+      <input password='true' bindinput='newpswInput'></input>
+      <button bindtap="back">修改密码</button>
+    </view>
+    <van-cell title="设置" icon="setting-o" bind:click="jump" is-link />
+  </view>
+</van-cell-group>

@@ -1,0 +1,19 @@
+/* miniprogram/pages/courseInfo/courseInfo.wxss */
+.course-title{
+    display: inline-block;
+    line-height: 42rpx;
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #3c4a55;
+    width: 100%;
+
+    margin-top: 28rpx;
+    margin-bottom: 18rpx;
+    margin-left:30rpx; 
+}
+.courseintro{
+  display: inline-block;
+   font-size: 28rpx;
+   padding-left: 30rpx;
+   padding-right: 20rpx;
+}

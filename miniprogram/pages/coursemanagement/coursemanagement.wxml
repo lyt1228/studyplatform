@@ -1,0 +1,58 @@
+<!--miniprogram/pages/coursemanagement/coursemanagement.wxml-->
+
+
+<view class='session'>
+  <view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal1}}"></view>
+  <view class="modalDlg" wx:if="{{showModal1}}">
+    <view class='course-item'>
+      <view class='course-item-info'>课程名称</view>
+      <input bindinput='coursenameInput'></input>
+    </view>
+    <view class='course-item'>
+      <view class='course-item-info'>课程ID</view>
+      <input bindinput='courseidInput'></input>
+    </view>
+    <view class='course-item'>
+      <view class='course-item-info'>课程简介</view>
+      <input bindinput='courseintroInput'></input>
+    </view>
+    <view class='course-item'>
+      <view class='course-item-info'>课程大纲</view>
+      <input bindinput='courseoutlineInput'></input>
+    </view>
+    <view class='course-item'>
+      <view class='course-item-info'>目录</view>
+      <input bindinput='courseindexInput'></input>
+    </view>
+    <view class='course-item'>
+      <view class='course-item-info'>学习要点</view>
+      <input bindinput='coursepointInput'></input>
+    </view>
+    <view class='course-item'>
+      <view class='course-item-info'>课堂讨论</view>
+      <input bindinput='coursediscInput'></input>
+    </view>
+    <button bindtap="go">提交</button>
+  </view>
+
+  <button class="sumbmitbtn" bindtap="submit1">添加课程</button>
+</view>
+<view class="session">
+  <view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal2}}"></view>
+  <view class="modalDlg" wx:if="{{showModal2}}">
+    <view class='course-item-info'>测试连接</view>
+    <input bindinput="testInput"></input>
+    <button bindtap="go">提交</button>
+  </view>
+  <button class="sumbmitbtn" bindtap="submit2">上传课堂测试</button>
+</view>
+
+
+<view class="session">
+  <view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal3}}"></view>
+  <view class="modalDlg" wx:if="{{showModal3}}">
+    <input></input>
+    <button bindtap="go">提交</button>
+  </view>
+  <button class="sumbmitbtn" bindtap="submit3">上传学习资料</button>
+</view>

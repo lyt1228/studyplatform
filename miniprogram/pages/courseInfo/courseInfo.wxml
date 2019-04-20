@@ -1,0 +1,39 @@
+<!--miniprogram/pages/courseInfo/courseInfo.wxml-->
+<view class='titleBar'>
+  <ul class="status">
+    <li>
+      <text class="{{status == '1'? 'active':''}} black" bindtap="showStatus" data-status="1">简介</text>
+    </li>
+    <li>
+      <text class="{{status == '2'? 'active':''}} black" bindtap="showStatus" data-status="2">目录</text>
+    </li>
+    <li>
+      <text class="{{status == '3'? 'active':''}} black" bindtap="showStatus" data-status="3">评价</text>
+    </li>
+  </ul>
+
+<block wx:if="{{status == '1'}}">
+    <van-cell title="简介" />
+    <text class='course-title'>课程大纲</text>
+    <text class='courseintro'>《医学数据挖掘与决策支持》是数据挖掘和医学相结合的交叉科学。本课程论述了数据挖掘的基本概念、基础知识以及在医药领域中的应用。本课程教学的目的和任务是在掌握计算机专业知识的基础上，了解医学数据挖掘与决策支持的基础知识，提高毕业生对医学信息的分析与处理能力，拓宽毕业生的就业途径，满足医药产业飞速发展对信息技术人才的需求。</text>
+</block>
+
+<block wx:elif="{{status == '2'}}">
+    <van-cell title="目录" />
+    <block wx:for="{{indexlist}}">
+    <navigator url="../course/course">
+       <ul>
+        <li>
+          <text class='course-title'>{{item.info}}</text>
+        </li>
+       </ul>
+    </navigator>
+       
+    </block>
+</block>
+
+<block wx:else>
+    <van-cell title="全部评价" />
+</block>
+
+</view>

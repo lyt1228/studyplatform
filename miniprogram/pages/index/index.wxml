@@ -1,0 +1,35 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='selection'>
+    <swiper indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+      <block wx:for="{{imgUrls}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" mode='aspectFill' style='width:100%; overflow:show;' />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <view class='selection'>
+    <view class="list-item" wx:for="{{listItems}}" >
+      <block>
+        <navigator  url="../courseInfo/courseInfo">
+        <view class="list-item-images">
+          <image src="../../images/byyl.jpg" class="list-item-images-img" />
+        </view>
+
+        <view class="list-item-text">
+          <view class="list-item-text-title">
+            <text>{{item.className}}</text>
+          </view>
+
+          <view class="list-item-text-content">
+            <text>{{item.classContent}}</text>
+          </view>
+        </view>
+        </navigator>
+      </block>
+    </view>
+  </view>
+
+</view>

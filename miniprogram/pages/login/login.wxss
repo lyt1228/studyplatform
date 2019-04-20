@@ -1,0 +1,61 @@
+/* miniprogram/pages/login/login.wxss */
+page{
+  height: 100%;
+  
+}
+
+input{
+  border: 1rpx solid #ccc;
+}
+.item{
+    flex-grow:1;
+    height: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 96%;
+    padding: 0 2%;
+}
+
+.login-item{
+    width: 90%;
+    margin-top: 30rpx;
+    flex-grow:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 10rpx;
+}
+
+
+.login-item-info{
+    font-size: 16px;
+    color: #888;
+    padding-bottom: 10rpx;
+}
+
+.login-info{
+  padding-top: 15rpx;
+}
+
+
+
+.login-pwd text{
+    height: 100%;
+    font-size: 14px;
+    color: #888;
+    display: flex;
+
+}
+.login-btn{
+    width: 80%;
+    color: white;
+    background-color: green;
+    border-radius: 15rpx;
+    font-size: 14px;
+
+}
+
+

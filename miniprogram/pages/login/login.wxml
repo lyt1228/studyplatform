@@ -1,0 +1,21 @@
+<!--login-->
+<view class='item'>
+      <view class='login-item'>
+            <view class='login-item-info'>账号</view>
+            <view class='login-info'><input bindinput='usernameInput'></input></view>
+      </view>
+
+      <view class='login-item'>
+            <view class='login-item-info'>密码</view>
+            <view class='login-pwd'> 
+            <input password='true' bindinput='passwordInput'></input>
+            </view>
+      </view>
+
+      <view class='login-item bottom'>
+            <button class='login-btn' bindtap='loginBtnClick'>登录</button>
+      </view>
+
+
+
+</view>
