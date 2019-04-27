@@ -25,24 +25,44 @@ Page({
   loginBtnClick: function () {
     // 用户名和密码验证的过程
     app.appData.userinfo = { username: this.data.username, password: this.data.password }
-    const logindata =''
-    const loginerr =''
+
+    // wx.cloud.callFunction({
+    //   name: 'login',
+    //   data: {
+    //     account: this.data.username,
+    //     psw: this.data.password
+    //   }
+    // }).then(res =>{
+    //   loginerr: JSON.stringify(res.err,null,2)
+    // })
+
     wx.cloud.callFunction({
-      name: 'login',
-      data: {
-        account: this.data.username,
-        psw: this.data.password
+      name:'login',
+      data:{
+        account: parseInt(this.data.username),
+        psw: parseInt(this.data.password)
       }
-    }).then(res =>{
-      loginerr: JSON.stringify(res.err,null,2)
+    }).then(res => {
+      // const logindata = res.result.data
+      const loginerr = res.result.err
+      if (loginerr == 'login'){
+        wx.switchTab({
+          url: '../users/users'
+        })
+      } else {
+        wx.showToast({
+          title: loginerr
+        })
+      }
+      
     })
 
-    wx.showToast({
-      title: loginerr,
-    })
-    // wx.switchTab({
-    //     url: '../users/users'
-    //  })
+
+
+    // wx.showToast({
+    //   title: loginerr
+    // })
+    
 
   },  
   

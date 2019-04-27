@@ -13,17 +13,16 @@ const db = cloud.database({
 })
 const _ = db.command
 
-const data = ''
-const err = 'login'
+var err = 'login'
 exports.main = async (event, context) =>{
   const logindata = await db.collection('userinfo').where({
     account: event.account
   }).get()
 
-  err:if(logindata.data[0] == null){
-    return "账号不存在"
+  if(logindata.data[0] == null){
+    err = "账号不存在"
   } else if(logindata.data[0].psw !== event.psw){
-    return "密码不正确"
+    err = "密码不正确"
   }
 
   return{
