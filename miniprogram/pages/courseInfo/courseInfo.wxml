@@ -12,28 +12,73 @@
     </li>
   </ul>
 
-<block wx:if="{{status == '1'}}">
-    <van-cell title="简介" />
-    <text class='course-title'>课程大纲</text>
-    <text class='courseintro'>《医学数据挖掘与决策支持》是数据挖掘和医学相结合的交叉科学。本课程论述了数据挖掘的基本概念、基础知识以及在医药领域中的应用。本课程教学的目的和任务是在掌握计算机专业知识的基础上，了解医学数据挖掘与决策支持的基础知识，提高毕业生对医学信息的分析与处理能力，拓宽毕业生的就业途径，满足医药产业飞速发展对信息技术人才的需求。</text>
-</block>
-
-<block wx:elif="{{status == '2'}}">
-    <van-cell title="目录" />
-    <block wx:for="{{indexlist}}">
-    <navigator url="../course/course">
-       <ul>
-        <li>
-          <text class='course-title'>{{item.info}}</text>
-        </li>
-       </ul>
-    </navigator>
-       
+  <block wx:if="{{status == '1'}}">
+    <block wx:for="{{courseinfolistItems}}">
+      <van-cell title="简介" />
+      <text class='course-title'>课程大纲</text>
+      <text class='courseintro'>{{item.c_outline}}</text>
     </block>
-</block>
+  </block>
 
-<block wx:else>
-    <van-cell title="全部评价" />
-</block>
+
+  <block wx:elif="{{status == '2'}}">
+    <block wx:for="{{courseinfolistItems}}">
+      <van-cell title="目录" />
+      <block wx:for="{{item.c_index}}">
+        <navigator url="../course/course?courseid={{item._id}}&indexid={{item.id}}">
+          <ul>
+            <li>
+              <text class='course-title'>{{item.title}}</text>
+            </li>
+          </ul>
+        </navigator>
+
+      </block>
+      </block>
+    </block>
+
+    <block wx:else>
+      <van-cell title="全部评价" />
+      <view class='com-list' wx:for="{{comlistItems}}">
+        <block>
+          <image class='userinfo-avatar' src='{{userInfo.avatarUrl}}' mode='cover'></image>
+          <view class='com-list-info'>
+            <view class='com-list-name'>
+              <text>{{item.name}}</text>
+            </view>
+
+            <view class='com-list-time'>
+              <text>{{item.time}}</text>
+            </view>
+
+            <view class='com-list-content'>
+              <text>{{item.content}}</text>
+              <view>
+                <text class='replybtn' bindtap='reply'>回复</text>
+              </view>
+
+
+            </view>
+
+            <view class='mask' wx:if="{{showModal}}"></view>
+            <view class="modalDlg" wx:if="{{showModal}}">
+              <textarea class='shurukuang' bindinput='replycontent'></textarea>
+              <button bindtap='closemodal'>提交</button>
+            </view>
+
+            <view class='com-list-reply' wx:for="{{item.replylistItems}}">
+              <block>
+                <text>{{item.rename}}</text>:
+                <text>{{item.recontent}}</text>
+                <text class='replybtn' bindtap='reply'>回复</text>
+              </block>
+            </view>
+
+          </view>
+        </block>
+      </view>
+
+
+    </block>
 
 </view>

@@ -1,3 +1,31 @@
 <!--miniprogram/pages/course/course.wxml-->
+<view class='divide'></view>
+<block wx:for="{{c_index}}">
+  <view class='content'>
+    <text>需要掌握的知识点:\n{{item.point}}</text>
+  </view>
 
- 
+  <view class='divide'></view>
+  <view class='content'>
+    <text>小节讨论：\n{{item.disc}}</text>
+  </view>
+  <view class='releknow' bindtap='releknow'>相关联知识点</view>
+</block>
+<view class='divide'></view>
+
+<button bindtap='gototest' class='btn01'>课堂测试</button>
+<navigator url='../courseware/courseware'>
+  <button class='btn03'>课件下载</button>
+</navigator>
+
+<view class='content'>课后留言：
+  <textarea class='shurukuang'></textarea>
+  <button class='btn02'>提交</button>
+</view>
+
+<view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <view class="modalDlg" wx:if="{{showModal}}">
+  <view>第四节</view>
+  <view>第五节</view>
+  <button bindtap='close'>关闭</button>
+  </view>

@@ -12,7 +12,8 @@ App({
   },
 
   appData: {
-    userinfo: null
+    userinfo: null,
+    userData:[]
   }
 })
 

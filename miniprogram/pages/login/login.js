@@ -26,16 +26,6 @@ Page({
     // 用户名和密码验证的过程
     app.appData.userinfo = { username: this.data.username, password: this.data.password }
 
-    // wx.cloud.callFunction({
-    //   name: 'login',
-    //   data: {
-    //     account: this.data.username,
-    //     psw: this.data.password
-    //   }
-    // }).then(res =>{
-    //   loginerr: JSON.stringify(res.err,null,2)
-    // })
-
     wx.cloud.callFunction({
       name:'login',
       data:{
@@ -43,7 +33,8 @@ Page({
         psw: parseInt(this.data.password)
       }
     }).then(res => {
-      // const logindata = res.result.data
+    //  const logindata = res.result.data
+      app.appData.userData = res.result.data
       const loginerr = res.result.err
       if (loginerr == 'login'){
         wx.switchTab({
@@ -56,14 +47,6 @@ Page({
       }
       
     })
-
-
-
-    // wx.showToast({
-    //   title: loginerr
-    // })
-    
-
   },  
   
 

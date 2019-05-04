@@ -16,12 +16,12 @@
  
 .modalDlg{
     width: 80%;
-    height: 80%;
+    border-radius: 20rpx;
     position: fixed;
-    top:10%;
+    top:5%;
     left: 10%;
     z-index: 9999;
-   
+    padding: 10rpx;
     background-color: #fff;
     
     display: flex;
@@ -30,5 +30,46 @@
 }
 input{
   border: 1rpx solid #ccc;
+  position: relative;
+  float: left;
+  margin-right:8rpx; 
+  
 }
 
+textarea{
+  border: 1rpx solid #ccc;
+  width: 420rpx;
+  height: 220rpx;
+  margin-bottom:20rpx; 
+}
+.btnsub{
+  margin: 10rpx;
+}
+
+
+.selctfilecontent{
+  font-size: 32rpx;
+  float:left;
+  margin:8rpx; 
+}
+.fileinput{
+  width: 300rpx;
+}
+
+.section__title{
+  font-size: 32rpx;
+  display: flex;
+  justify-content: center;
+}
+.pickerpar{
+  width: 460rpx;
+  
+  border: 1rpx solid #ccc;
+  font-size: 34rpx;
+}
+.picker{
+  height: 60rpx;
+  display: flex;
+  justify-content: center;
+  
+}

@@ -13,9 +13,9 @@
   <view class='selection'>
     <view class="list-item" wx:for="{{listItems}}" >
       <block>
-        <navigator  url="../courseInfo/courseInfo">
+        <navigator  url="../courseInfo/courseInfo?_id={{item._id}}">
         <view class="list-item-images">
-          <image src="../../images/byyl.jpg" class="list-item-images-img" />
+          <image src="{{item.courseimg}}" class="list-item-images-img" />
         </view>
 
         <view class="list-item-text">

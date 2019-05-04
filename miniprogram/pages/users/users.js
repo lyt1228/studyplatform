@@ -6,7 +6,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    showModal:false
+    showModal:false,
+    username: '',
+    account: '',
+    major: '',
+    grade: '',
+    isTeacher:false
 
   },
   jump: function () {
@@ -32,8 +37,12 @@ Page({
 
       wx.redirectTo({ url: "../login/login" })
     } else {
-
-      this.setData({ username: app.appData.userinfo.username })
+      this.setData({ 
+        username: app.appData.userData.name,
+        account: app.appData.userData.account,
+        major: app.appData.userData.major,
+        grade: app.appData.userData.class,
+        })
 
     }
 

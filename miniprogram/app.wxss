@@ -16,7 +16,7 @@
 .titleBar{
   box-sizing: border-box;
   width: 100%;
-  border-bottom: 1px solid #eee;
+  /* border-bottom: 1px solid #eee; */
   align-items: center;
   background-color: white;
 }

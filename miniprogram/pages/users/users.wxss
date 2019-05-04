@@ -13,6 +13,7 @@
     margin-right: 24rpx;
     display: inline-block;
     border-radius:50%; 
+    border:1rpx solid #eee;
 }
 .header .info{
     display: inline-block;

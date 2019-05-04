@@ -3,23 +3,36 @@
   <view class='header'>
     <image class='userinfo-avatar' src='{{userInfo.avatarUrl}}' mode='cover'></image>
     <view class="info">
-      <text>姓名：张三\n</text>
-      <text>学号：2015081001\n</text>
-      <text>专业：医学信息工程\n</text>
-      <text>年级：2015级\n</text>
+      <view>
+        <text>姓名：</text>{{username}}</view>
+      <view>
+        <text>学号: </text>{{account}}</view>
+      <!-- <block wx:if="{{isTeacher}}"> -->
+        <view>
+          <text>专业：</text>{{major}}</view>
+        <view>
+          <text>年级：</text>{{grade}}</view>
+      <!-- </block>
+      <block wx:else> -->
+      <!-- <view>
+          <text>学院：</text>医学信息工程学院</view> -->
+      <!-- </block> -->
+      
     </view>
 
-  </view>
-  <!-- <block wx:if="{{}}"> -->
-  <van-cell title="我的课程" icon="debit-pay" is-link />
-  <van-cell title="我的收藏" icon="star-o" is-link />
 
+  </view>
+  <!-- <block wx:if="{{!isTeacher}}"> -->
+    <navigator url='../courseware/courseware'>
+      <van-cell title="课堂课件" icon="debit-pay" is-link />
+    </navigator>
   <!-- </block> -->
+
   <!-- <block wx:else> -->
   <navigator url='../coursemanagement/coursemanagement'>
     <van-cell title="学习管理" icon="comment-o" is-link />
   </navigator>
-  <!-- <block> -->
+  <!-- </block> -->
 
   <view class='setting'>
     <view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>

@@ -1,19 +1,108 @@
 /* miniprogram/pages/courseInfo/courseInfo.wxss */
-.course-title{
-    display: inline-block;
-    line-height: 42rpx;
-    font-size: 32rpx;
-    font-weight: bold;
-    color: #3c4a55;
-    width: 100%;
 
-    margin-top: 28rpx;
-    margin-bottom: 18rpx;
-    margin-left:30rpx; 
-}
-.courseintro{
+.course-title {
   display: inline-block;
-   font-size: 28rpx;
-   padding-left: 30rpx;
-   padding-right: 20rpx;
+  line-height: 42rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #3c4a55;
+  width: 100%;
+  margin-top: 28rpx;
+  margin-bottom: 18rpx;
+  margin-left: 30rpx;
+}
+
+.courseintro {
+  display: inline-block;
+  font-size: 28rpx;
+  padding-left: 30rpx;
+  padding-right: 20rpx;
+}
+
+image {
+  width: 100rpx;
+  height: 100rpx;
+  margin: 24rpx;
+  display: block;
+  border-radius: 50%;
+  float: left;
+  position: relative;
+  top:20rpx;
+  border:1rpx solid #ddd;
+  
+}
+
+.com-list{
+  border-bottom: 1rpx solid#f7f7f7;
+  
+}
+.com-list .com-list-info {
+  display: inline-block;
+  position: relative;
+  width:70%;
+  height: 100%;
+  padding-top:20rpx; 
+  padding-bottom: 20rpx;
+  
+  
+}
+
+.com-list .com-list-info .com-list-name{
+  display: inline-block;
+  font-size: 36rpx;
+  color: rgb(84, 82, 82);
+}
+
+.com-list .com-list-info .com-list-time{
+  
+  font-size: 24rpx;
+  color: #ddd;
+}
+
+.com-list .com-list-info .com-list-content{
+  font-size: 34rpx;
+}
+
+.replybtn{
+  font-size: 28rpx;
+  color: blue;
+  margin: 8rpx;
+}
+
+.mask{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    z-index: 9000;
+    opacity: 0.5;
+}
+
+.modalDlg{
+    width: 80%;
+    height: 40%;
+    position: fixed;
+    top:10%;
+    left: 10%;
+    z-index: 9999;
+    
+    background-color: #fff;
+    border-radius: 30rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.shurukuang{
+  margin: 30rpx;
+  width: 80%;
+  height: 60%;
+  border: 1rpx solid #ccc;
+}
+
+.com-list-reply{
+  font-size: 32rpx;
+  
 }
