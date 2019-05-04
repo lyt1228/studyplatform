@@ -1,0 +1,14 @@
+<!--miniprogram/pages/courseware/courseware.wxml-->
+<!-- 课件下载页 -->
+<block wx:for="{{filelist}}">
+  <view class='filelist' bindtap="openfilelist">
+    <image src='../../images/fileicon.jpg' class='fileimg'></image>
+    <view class='filetitle'>{{item.title}}</view>
+  </view>
+
+  <view class="mask" wx:if="{{showModal}}"></view>
+  <view class="modalDlg" wx:if="{{showModal}}">
+    <view wx:for="{{filelist}}" bindtap='downloadfile'>{{item.fileId}}</view>
+    <button bindtap='closefile'>关闭</button>
+  </view>
+</block>
