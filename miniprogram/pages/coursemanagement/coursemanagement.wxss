@@ -62,8 +62,8 @@ textarea{
   justify-content: center;
 }
 .pickerpar{
-  width: 460rpx;
-  
+  width: 100%;
+  padding: 10rpx;
   border: 1rpx solid #ccc;
   font-size: 34rpx;
 }
@@ -72,4 +72,9 @@ textarea{
   display: flex;
   justify-content: center;
   
+}
+
+.picker1{
+  
+  height: 60rpx;
 }
