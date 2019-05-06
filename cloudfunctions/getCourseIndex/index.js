@@ -13,6 +13,7 @@ const db = cloud.database({
 // 云函数入口函数
 exports.main = async (event, context) => {
   const courseIndex = await db.collection('courseinfo').field({
+    id: true,
     c_name: true,
     c_Intro: true
   }).get()

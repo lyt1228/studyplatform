@@ -25,7 +25,7 @@
     <block wx:for="{{courseinfolistItems}}">
       <van-cell title="目录" />
       <block wx:for="{{item.c_index}}">
-        <navigator url="../course/course?courseid={{item._id}}&indexid={{item.id}}">
+        <navigator url="../course/course?courseid={{item.c_id}}&indexid={{item.in_id}}">
           <ul>
             <li>
               <text class='course-title'>{{item.title}}</text>
@@ -63,13 +63,13 @@
             <view class='mask' wx:if="{{showModal}}"></view>
             <view class="modalDlg" wx:if="{{showModal}}">
               <textarea class='shurukuang' bindinput='replycontent'></textarea>
-              <button bindtap='closemodal'>提交</button>
+              <button data-commentid="{{item._id}}" bindtap='closemodal'>提交</button>
             </view>
 
-            <view class='com-list-reply' wx:for="{{item.replylistItems}}">
+            <view class='com-list-reply' wx:for="{{item.recommentData}}">
               <block>
-                <text>{{item.rename}}</text>:
-                <text>{{item.recontent}}</text>
+                <text>{{item.username}}</text>:
+                <text>{{item.content}}</text>
                 <text class='replybtn' bindtap='reply'>回复</text>
               </block>
             </view>

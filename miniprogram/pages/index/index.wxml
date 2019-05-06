@@ -13,7 +13,7 @@
   <view class='selection'>
     <view class="list-item" wx:for="{{listItems}}" >
       <block>
-        <navigator  url="../courseInfo/courseInfo?_id={{item._id}}">
+        <navigator  url="../courseInfo/courseInfo?c_id={{item.id}}">
         <view class="list-item-images">
           <image src="{{item.courseimg}}" class="list-item-images-img" />
         </view>

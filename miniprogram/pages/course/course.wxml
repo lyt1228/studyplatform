@@ -19,8 +19,8 @@
 </navigator>
 
 <view class='content'>课后留言：
-  <textarea class='shurukuang'></textarea>
-  <button class='btn02'>提交</button>
+  <textarea class='shurukuang' bindinput='commentContent'></textarea>
+  <button class='btn02' bindtap='comment'>提交</button>
 </view>
 
 <view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>

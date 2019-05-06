@@ -1,4 +1,6 @@
 // miniprogram/pages/coursemanagement/coursemanagement.js
+var app = getApp()
+wx.cloud.init()
 Page({
 
   data: {
@@ -19,6 +21,10 @@ Page({
     targetmultiIndex: [0, 0],
     relamultiIndex: [0, 0],
 
+    coursename:'',
+    courseid:'',
+    courseintro:'',
+    courseoutline:''
   },
 
   submit1: function() {
@@ -47,14 +53,14 @@ Page({
   },
 
 
-  go: function() {
-    this.setData({
-      showModal1: false,
-      showModal2: false,
-      showModal3: false,
-      showModal4: false,
-    })
-  },
+  // go: function() {
+  //   this.setData({
+  //     showModal1: false,
+  //     showModal2: false,
+  //     showModal3: false,
+  //     showModal4: false,
+  //   })
+  // },
   selectfilesrc: function() {
 
   },
@@ -135,6 +141,37 @@ Page({
     })
   },
   
+  coursenameInput: function(event){
+    this.setData({ coursename: event.detail.value})
+  },
 
+  courseidInput: function (event) {
+    this.setData({ courseid: event.detail.value })
+  },
+
+  courseintroInput: function (event) {
+    this.setData({ courseintro: event.detail.value })
+  },
+
+  courseoutlineInput: function (event) {
+    this.setData({ courseoutline: event.detail.value })
+  },
+
+  go:function(){
+    wx.cloud.callFunction({
+      name: 'addCourse',
+      data: {
+        c_name: this.data.coursename,
+        id: this.data.courseid,
+        c_Intro: this.data.courseintro,
+        c_outline: this.data.courseoutline
+      }
+    }).then(res => {
+      this.setData({showModal1:false})
+      wx.showToast({
+        title: '提交成功',
+      })
+    })
+  }
 
 })

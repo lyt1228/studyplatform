@@ -13,13 +13,11 @@ const db = cloud.database({
 // 云函数入口函数 
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
-  const indexAll = await db.collection('courseinfo').where({
-    _id: event.courseid
-  }).field({
-    c_index: true
+  const indexAll = await db.collection('courseindex').where({
+    in_id:event.indexid
   }).get()
-  var index = indexAll.data[0].c_index[parseInt(event.indexid)]
+
   return {
-    index
+    data:indexAll.data
   }
 }

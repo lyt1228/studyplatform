@@ -15,27 +15,37 @@ const _ = db.command
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   const courseData = await db.collection('courseinfo').where({
-    _id : event._id
+    id : event.c_id
   }).field({
-    c_Intro: false
+    c_Intro: false,
+    c_comment:false,
+    c_index:false
   }).get()
 
   const data = courseData.data[0]
-  var indextitle = []
-  for(var i = 0; i < data.c_index.length; i++){
-    var indexitem = {
-      id: i,
-      title: data.c_index[i].title,
-      _id: data._id
-    }
-    indextitle[i] = indexitem
-  }
+  // var indextitle = []
+  
+  // for(var i = 0; i < data.c_index.length; i++){
+  //   var indexitem = {
+  //     id: i,
+  //     title: data.c_index[i].title,
+  //     c_id: data.id
+  //   }
+  //   indextitle[i] = indexitem
+  // }
+
+const indexData = await db.collection('courseindex').where({
+  c_id : event.c_id
+}).field({
+  c_id:true,
+  in_id:true,
+  title:true
+}).get()
 
   return {
     _id:data._id,
     c_name:data.c_name,
     c_outline:data.c_outline,
-    c_comment:data.c_comment,
-    c_index:indextitle
+    c_index:indexData.data
   }
 }

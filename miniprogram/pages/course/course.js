@@ -1,9 +1,11 @@
 // miniprogram/pages/course/course.js
+var app = getApp()
 Page({
   data: {
     c_index:[],
     showModal:false,
-        
+    content:'',
+    c_id:''    
   },
   gototest:function(){
     
@@ -32,14 +34,35 @@ Page({
   },
 
   onLoad:function(options){
+    this.setData({c_id:options.courseid})
     wx.cloud.callFunction({
       name:'getCourse',
       data:{
-        courseid:options.courseid,
         indexid:options.indexid
       }
     }).then(res =>{
-      this.setData({c_index: [res.result.index]})
+      this.setData({c_index: res.result.data})
+    })
+  },
+
+  commentContent:function(event){
+    this.setData({ content: event.detail.value })
+  },
+
+  comment:function(){
+    wx.cloud.callFunction({
+      name: 'addComment',
+      data: {
+        c_id: this.data.c_id,
+        content: this.data.content,
+        name: app.appData.userData.name,
+        time: app.getTime(),
+        id: app.appData.userData.account
+      }
+    }).then(res => {
+      wx.showToast({
+        title: '留言成功',
+      })
     })
   }
 })

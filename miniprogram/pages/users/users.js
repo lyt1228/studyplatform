@@ -11,8 +11,9 @@ Page({
     account: '',
     major: '',
     grade: '',
-    isTeacher:false
-
+    isTeacher:false,
+    oldpsw:'',
+    newpsw:'',
   },
   jump: function () {
     this.setData({
@@ -95,5 +96,36 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  oldpswInput: function(event){
+    this.setData({oldpsw: event.detail.value})
+  },
+
+  newpswInput: function (event) {
+    this.setData({newpsw: event.detail.value})
+  },
+
+  back: function(){
+    if(this.data.oldpsw == app.appData.userData.psw){
+      wx.cloud.callFunction({
+        name: 'resetPassword',
+        data: {
+          _id: app.appData.userData._id,
+          psw: parseInt(this.data.newpsw)
+        }
+      }).then(res => {
+        wx.showToast({
+          title: '设置成功',
+        })
+        showModal: false
+      })
+    } else{
+      wx.showToast({
+        title: '密码错误',
+      })
+      showModal: false
+    }
+    
   }
 })
