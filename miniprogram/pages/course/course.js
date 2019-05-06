@@ -8,6 +8,18 @@ Page({
   },
   gototest:function(){
     
+      wx.navigateToMiniProgram({
+        appId: 'wxd947200f82267e58',
+        path: 'pages/wjxqList/wjxqList?activityId=31221299',
+        extraData: {
+          foo: 'bar'
+        },
+        envVersion: 'develop',
+        success(res) {
+          console.log("打开成功")
+        }
+      })
+    
   },
   releknow:function(){
     this.setData({

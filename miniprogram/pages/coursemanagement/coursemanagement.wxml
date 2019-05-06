@@ -98,3 +98,35 @@
   </view>
   <button class="sumbmitbtn" bindtap="submit3">上传课件</button>
 </view>
+
+
+<view class="session">
+  <view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal4}}"></view>
+  <view class="modalDlg" wx:if="{{showModal4}}">
+    <view class='course-item-info'>课程关联</view>
+    <view>
+      <view class="section__title">目标章节</view>
+      <view class='pickerpar'>
+        <picker mode="multiSelector" bindchange="bindtargetMutiPickerChange" bindcolumnchange="bindtargetMultiPickerColumnChange" value="{{targetmultiIndex}}" range="{{targetmultiArray}}">
+          <view class="picker1">
+            {{targetmultiArray[0][targetmultiIndex[0]]}}，{{targetmultiArray[1][targetmultiIndex[1]]}}
+          </view>
+        </picker>
+      </view>
+    </view>
+
+    <view>
+      <view class="section__title">关联章节</view>
+      <view class='pickerpar'>
+        <picker mode="multiSelector" bindchange="bindrelaMutiPickerChange" bindcolumnchange="bindrelaMultiPickerColumnChange" value="{{relamultiIndex}}" range="{{relamultiArray}}">
+          <view class="picker1">
+            {{relamultiArray[0][relamultiIndex[0]]}}，{{relamultiArray[1][relamultiIndex[1]]}}
+          </view>
+        </picker>
+      </view>
+    </view>
+
+    <button bindtap="go" class='btnsub'>提交</button>
+  </view>
+  <button class="sumbmitbtn" bindtap="submit4">课程关联设置</button>
+</view>
