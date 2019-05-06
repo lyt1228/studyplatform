@@ -1,7 +1,6 @@
 // miniprogram/pages/course/course.js
 Page({
   data: {
-    // c_index: [{ title: "医学数据挖掘与决策分析绪论", disc: "1.什么是数据挖掘？\n2.数据仓库的基本特征是什么？", test: "", point:"1.掌握医学信息技术与医学知识的概念，医学决策支持系统的发展，数据仓库的基本特征、数据组织等;\n2.熟悉医学信息技术及决策支持系统的概念和数据仓库的基本概念；\n3.了解医学信息技术及决策支持系统的发展"}],
     c_index:[],
     showModal:false,
         
