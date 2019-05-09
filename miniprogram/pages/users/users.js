@@ -118,13 +118,17 @@ Page({
         wx.showToast({
           title: '设置成功',
         })
-        showModal: false
+        this.setData({
+          showModal:false
+        })
       })
     } else{
       wx.showToast({
         title: '密码错误',
       })
-      showModal: false
+      this.setData({
+        showModal: false
+      })
     }
     
   }

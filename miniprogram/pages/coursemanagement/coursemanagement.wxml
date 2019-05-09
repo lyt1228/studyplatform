@@ -21,7 +21,7 @@
       <textarea bindinput='courseoutlineInput'></textarea>
     </view>
 
-    <button bindtap="go" class='btnsub'>提交</button>
+    <button bindtap="submitCourse" class='btnsub'>提交</button>
   </view>
 
   <button class="sumbmitbtn" bindtap="submit1">添加课程</button>
@@ -30,7 +30,7 @@
 
 
 
-<view class="session">
+<scroll-view class="session" scroll-y="true">
   <view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal2}}"></view>
   <view class="modalDlg" wx:if="{{showModal2}}">
 
@@ -38,9 +38,9 @@
     <view>
       <view class="section__title">选择课程</view>
       <view class='pickerpar'>
-        <picker bindchange="bindPickerChange" value="{{index}}" range="{{c_name}}">
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{courseTitle}}">
           <view class="picker">
-            {{c_name[index]}}
+            {{courseTitle[index]}}
           </view>
         </picker>
       </view>
@@ -48,29 +48,34 @@
 
     <view class='course-item'>
       <view class='course-item-info'>目录标题</view>
-      <input bindinput='coursetitleInput'></input>
+      <input bindinput='indextitleInput'></input>
+    </view>
+
+    <view class='course-item'>
+      <view class='course-item-info'>目录ID</view>
+      <input bindinput='indexidInput'></input>
     </view>
 
     <view class='course-item'>
       <view class='course-item-info'>课堂要点</view>
-      <textarea bindinput='coursepointInput'></textarea>
+      <textarea bindinput='indexpointInput'></textarea>
     </view>
 
     <view class='course-item'>
       <view class='course-item-info'>小节讨论</view>
-      <textarea bindinput='coursediscInput'></textarea>
+      <textarea bindinput='indexdiscInput'></textarea>
     </view>
 
     <view class='course-item'>
       <view class='course-item-info'>课堂测试链接</view>
-      <input bindinput='coursetestInput'></input>
+      <input bindinput='indextestInput'></input>
     </view>
 
 
-    <button bindtap="go" class='btnsub'>提交</button>
+    <button bindtap="submitIndex" class='btnsub'>提交</button>
   </view>
   <button class="sumbmitbtn" bindtap="submit2">管理课程</button>
-</view>
+</scroll-view>
 
 
 <view class="session">
@@ -86,9 +91,9 @@
     <view>
       <view class="section__title">选择课程</view>
       <view class='pickerpar'>
-        <picker bindchange="bindPickerChange" value="{{index}}" range="{{c_name}}">
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{courseTitle}}">
           <view class="picker">
-            {{c_name[index]}}
+            {{courseTitle[index]}}
           </view>
         </picker>
       </view>
@@ -126,7 +131,7 @@
       </view>
     </view>
 
-    <button bindtap="go" class='btnsub'>提交</button>
+    <button bindtap="submitRelakonw" class='btnsub'>提交</button>
   </view>
   <button class="sumbmitbtn" bindtap="submit4">课程关联设置</button>
 </view>
