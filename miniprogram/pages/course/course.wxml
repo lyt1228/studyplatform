@@ -25,7 +25,15 @@
 
 <view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
   <view class="modalDlg" wx:if="{{showModal}}">
-  <view>第四节</view>
-  <view>第五节</view>
+ <block wx:for="{{relaknow}}">
+        <navigator url="../course/course?courseid={{item.tc_id}}&indexid={{item.t_inid}}">
+          <ul>
+            <li>
+              <text class='course-title'>{{item.t_inname}}</text>
+            </li>
+          </ul>
+        </navigator>
+
+      </block>
   <button bindtap='close'>关闭</button>
   </view>
