@@ -22,6 +22,7 @@ exports.main = async (event, context) => {
   }).get()
 
   return {
+    r_inid:event.r_inid,
     relaData
   }
 }

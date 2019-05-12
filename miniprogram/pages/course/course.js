@@ -27,7 +27,7 @@ Page({
     wx.cloud.callFunction({
       name:'getRelakonw',
       data:{
-        r_inid:this.data.c_index.in_id
+        r_inid: this.data.c_index[0].in_id
       }
     }).then(res =>{
       this.setData({

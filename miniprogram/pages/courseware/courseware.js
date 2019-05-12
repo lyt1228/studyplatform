@@ -19,7 +19,20 @@ Page({
     })
   },
   downloadfile:function(){
-
+    wx.downloadFile({
+      url: 'https://7374-studytest1-0726c8-1258776414.tcb.qcloud.la/运营工作介绍v1.pptx',
+      success(res) {
+        const filePath = res.tempFilePath
+        wx.openDocument({
+          filePath,
+          success(res) {
+            wx.showToast({
+              title: '下载成功',
+            })
+          }
+        })
+      }
+    })
   }
   
 })
